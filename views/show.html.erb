@@ -21,6 +21,14 @@
       <br />
       <%= $repo.current_branch %> branch
     </section>
+
+    <section class="context">
+       <% if @page.name =~ /\d\d\d\d-\d\d-\d\d/ %>
+         <% require 'date'; date = Date.parse(@page.name) %>
+         <a href="/<%= date.prev_day %>" class="nav_link">previous day</a>
+         &bull; <a href="/<%= date.next_day %>" class="nav_link">next day</a>
+       <% end %>
+    </section>
   </aside>
 
   <header><h1><%= @page.name.gsub('_', ' ') %></h1></header>
