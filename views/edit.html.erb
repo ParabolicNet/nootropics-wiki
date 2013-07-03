@@ -7,6 +7,13 @@
         &bull; <a href="/h/<%= @page.name %>" class="nav_link">history</a>
       <% end %>
       &bull; <input type="submit" value="Save" class="submit" />
+      <section class="context">
+        <% if @page.name =~ /\d\d\d\d-\d\d-\d\d/ %>
+          <% require 'date'; date = Date.parse(@page.name) %>
+          <a href="/<%= date.prev_day %>" class="nav_link">previous day</a>
+          &bull; <a href="/<%= date.next_day %>" class="nav_link">next day</a>
+        <% end %>
+      </section>
     </aside>
 
     <h1>Editing <a href="/<%= @page.name %>"><%= @page.name %></a></h1>
