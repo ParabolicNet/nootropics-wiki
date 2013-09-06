@@ -16,7 +16,13 @@
       </section>
     </aside>
 
-    <h1>Editing <a href="/<%= @page.name %>"><%= @page.name %></a></h1>
+    <header>
+      <h1>Editing <a href="/<%= @page.name %>"><%= @page.name %></a></h1>
+      <% if @page.name =~ /\d\d\d\d-\d\d-\d\d/ %>
+        <% require 'date'; date = Date.parse(@page.name) %>
+        <p><time datetime="<%= date %>"><%= date.strftime("%A %e %B %Y") %></time></p>
+      <% end %>
+    </header>
 
     <% if files = @page.attachments %>
       <section class="attachments">
