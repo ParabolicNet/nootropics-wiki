@@ -11,8 +11,7 @@ html {
 img { max-width: 100%; }
 
 body {
-  /* one centered column of max 600px */
-  max-width: 600px; margin: 0em auto; padding: 2em;
+  margin: 0;
   font-family: "Cantarell", "Droid Sans", Arial, "Deja Vu Sans", "Bitstream Vera Sans", sans-serif;
   font-size: 15px; line-height: 25px;
 }
@@ -68,7 +67,7 @@ li ul, li ol { padding: 0 0 0 1.4em; } /* no vertical padding for nested lists *
 article > h1 { font-size: 160%; margin: 1.5em 0 1em; }
 article > h2 { font-size: 110%; color: #333; margin: 1.5em 0 1em; }
 
-/* style external links 
+/* style external links
 article a[href^="http://"]:after,
 article a[href^="https://"]:after {
   background-image: url(/external-link.png);
@@ -90,7 +89,7 @@ article a[href^="https://"]:after {
   min-width: 100%;
 }
 
-/* header { background-color: #443B31; } */
+body > header nav { max-width: 600px; margin: 0 auto; }
 
 header nav a { display: inline; padding: 1px 6px; border-radius: 2px; color: white; text-decoration: none; font-weight: bold; }
   header nav a:visited { color: white; }
@@ -146,6 +145,10 @@ header nav ul li:hover ul { display: inline; } /* display submenu on hover*/
   font-weight: bold;
 }
 
+article {
+  max-width: 600px; margin: 0em auto; padding: 2em;
+}
+
 article aside {
   float: right;
   padding: 0.5em;
@@ -179,7 +182,7 @@ body > header {
   clear: both;
   background: #464141; color: white;
   text-align: right; padding: 4px;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
 }
 
 footer {
