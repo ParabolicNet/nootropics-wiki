@@ -1,17 +1,26 @@
+<% content_for :nav do %>
+  <a href="/h/<%= @page.name %>">history</a>
+  <% unless params[:rev] %>
+    <a href="/e/<%= @page.name %>">edit</a>
+  <% end %>
+<% end %>
+
 <article>
 
   <aside>
     <% if params[:rev] %>
-      <a href="/<%= @page.name %>" class="nav_link">current</a> &bull;
-    <% else %>
-      <a href="/e/<%= @page.name %>" class="nav_link">edit</a> &bull;
-    <% end %>
-    <a href="/h/<%= @page.name %>" class="nav_link">history</a>
-    <% if @page.previous_commit %>
-      &bull; <a href="/h/<%= @page.name %>/<%= @page.previous_commit %>" class="nav_link">older</a>
-    <% end %>
-    <% if @page.next_commit %>
-      &bull; <a href="/h/<%= @page.name %>/<%= @page.next_commit %>" class="nav_link">newer</a>
+      <a href="/<%= @page.name %>">current version</a><br/>
+      <% if @page.next_commit %>
+       <a href="/h/<%= @page.name %>/<%= @page.next_commit %>" rel='next'>newer version</a>
+      <% else %>
+        <span>newer version</span>
+      <% end %>
+      <br/>
+      <% if @page.previous_commit %>
+        <a href="/h/<%= @page.name %>/<%= @page.previous_commit %>" rel='prev'>previous version</a>
+      <% else %>
+        <span>previous version</span>
+      <% end %>
     <% end %>
 
     <section class="details">
@@ -25,8 +34,8 @@
     <section class="context">
        <% if @page.name =~ /\d\d\d\d-\d\d-\d\d/ %>
          <% require 'date'; date = Date.parse(@page.name) %>
-         <a href="/<%= date.prev_day %>" class="nav_link">previous day</a>
-         &bull; <a href="/<%= date.next_day %>" class="nav_link">next day</a>
+         <a href="/<%= date.prev_day %>" >previous day</a>
+         &bull; <a href="/<%= date.next_day %>">next day</a>
        <% end %>
     </section>
   </aside>
@@ -35,7 +44,7 @@
     <h1><%= @page.name.gsub('_', ' ') %></h1>
     <% if @page.name =~ /\d\d\d\d-\d\d-\d\d/ %>
       <% require 'date'; date = Date.parse(@page.name) %>
-      <p><time datetime="<%= date %>"><%= date.strftime("%A %e %B %Y") %></time></p>
+      <h2><time datetime="<%= date %>"><%= date.strftime("%A %e %B %Y") %></time></h2>
     <% end %>
   </header>
 
