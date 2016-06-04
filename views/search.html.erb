@@ -5,13 +5,13 @@
       <p><%= @grep.size %> pages contain match</p>
       <p><%= @grep.map { |g| g[1].size }.inject { |acc, n| acc + n } %> results</p>
     </section>
-    <p>Create <a href="/<%= @search.as_wiki_link %>"><%= @search %></a>.</p>
+    <p>Create <a href="/<%= @query.as_wiki_link %>"><%= @query %></a>.</p>
   </aside>
 
   <% if @grep.empty? %>
     <h1>No pages match</h1>
   <% else %>
-    <h1>Results for '<span class="search_term"><%= @search %></span>'</h1>
+    <h1>Results for '<span class="search_term"><%= @query %></span>'</h1>
   <% end %>
 
   <section class="results">

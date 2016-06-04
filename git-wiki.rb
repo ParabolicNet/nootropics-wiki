@@ -5,7 +5,10 @@ require './environment'
 require 'sinatra'
 require 'sinatra/content_for'
 
-get('/') { redirect "/#{HOMEPAGE}" }
+get('/') do
+  @no_search_in_header = true
+  show :root, 'Git Wiki'
+end
 
 # page paths
 
@@ -146,12 +149,12 @@ end
 
 get '/a/search' do
   @menu = Page.new("menu")
-  @search = params[:search]
-  @titles = search_on_filename(@search)
-  @grep = $repo.grep(@search, nil, :ignore_case => true)
+  @query = params[:q].to_s
+  @titles = search_on_filename(@query)
+  @grep = $repo.grep(@query, nil, :ignore_case => true)
   [@titles, @grep].each do |x|
     x.values.each do |v|
-      v.each { |w| w.last.gsub!(@search, "<mark>#{escape_html @search}</mark>") }
+      v.each { |w| w.last.gsub!(@query, "<mark>#{escape_html @query}</mark>") }
     end
   end
   show :search, 'Search Results'

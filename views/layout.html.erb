@@ -20,7 +20,9 @@
         <nav>
           <a href="/" class="nav_link">home</a>
           <%= @menu.body rescue nil %>
-          <input type="search" id="search_field" name="search" size="30" placeholder="search... [alt+s]" accesskey="S" autofocus />
+          <% unless @no_search_in_header %>
+            <input type="search" id="search_field" name="q" size="30" placeholder="search... [alt+s]" accesskey="S" autofocus value="<%=@query %>"/>
+          <% end %>
           <ul><li><a href="/wiki">wiki</a>
             <ul><li><a href="/a/branches" class="nav_link">branches</a></li>
                 <li><a href="/a/history" class="nav_link">history</a></li>
