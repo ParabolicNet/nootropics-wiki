@@ -1,15 +1,17 @@
-<% if @pages.empty? %>
-  <h1>No pages yet</h1>
-<% else %>
-  <h1>All pages</h1>
+<article>
+  <% if @pages.empty? %>
+    <h1>No pages yet</h1>
+  <% else %>
+    <h1>All pages</h1>
 
-  <div class="content">
-    <ul>
-      <% @pages.each do |page| %>
-        <li>
-          <strong><a href="/<%= page.name %>"><%= page.name %></a></strong>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+    <div class="content">
+      <ul>
+        <% @pages.each do |page| %>
+          <li>
+            <strong><a href="/<%= page.name %>"><%= page.name %></a></strong>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</article>
