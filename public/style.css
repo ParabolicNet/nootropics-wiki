@@ -91,13 +91,13 @@ header nav a { display: inline; padding: 1px 6px; border-radius: 2px; color: whi
   header nav a:visited { color: white; }
   header nav a:hover { background-color: #696969; color: #feb800; text-decoration: none; }
 
-header nav ul, header nav li { display: inline; margin: 0; padding: 0; }
+header nav ul, header nav li { display: inline-block; margin: 0; padding: 0; }
 
-header nav { position: relative; }
-header nav ul li ul { position: absolute; left: 0; top: 90%; background: #696969; border-radius: 3px; width: 100%; text-align: center; display: none; /* submenus are hidden: */ }
+header nav ul li { position: relative; }
+header nav ul li ul { position: absolute; background: #696969; border-radius: 3px; text-align: center; display: none; /* submenus are hidden: */ }
 
-header nav ul li:hover ul { display: inline; } /* display submenu on hover*/
-
+header nav ul li:hover ul { display: block; } /* display submenu on hover*/
+header nav ul li:hover ul li { display: block; min-width: 5em }
 /*header, #footer {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
@@ -181,6 +181,7 @@ body > header {
   /*border-radius: 3px;*/
   box-shadow: 0 2px 5px rgba(0,0,0,0.26);
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   padding: 5px 10px;
