@@ -3,10 +3,6 @@ header, nav, article, section, footer, figure, aside { display: block; }
 
 html, body {/*background-color: #fbf9f7;*/ color: #404038;}
 
-html {
-  border-top: 4px solid #464141;
-}
-
 /* a responsive design trick: */
 img { max-width: 100%; }
 
@@ -89,7 +85,7 @@ article a[href^="https://"]:after {
   min-width: 100%;
 }
 
-body > header nav { max-width: 600px; margin: 0 auto; }
+body > header nav { margin: 0 auto; }
 
 header nav a { display: inline; padding: 1px 6px; border-radius: 2px; color: white; text-decoration: none; font-weight: bold; }
   header nav a:visited { color: white; }
@@ -183,6 +179,11 @@ body > header {
   background: #464141; color: white;
   text-align: right; padding: 4px;
   /*border-radius: 3px;*/
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding: 5px 10px;
 }
 
 footer {
