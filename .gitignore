@@ -7,4 +7,5 @@
 .directory
 .*.kate-swp
 .bundle
-
+tmp/*
+.sass-cache/
