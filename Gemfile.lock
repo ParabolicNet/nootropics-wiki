@@ -11,6 +11,7 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rubypants (0.2.0)
+    sass (3.4.22)
     shotgun (0.9)
       rack (>= 1.0)
     sinatra (1.4.7)
@@ -33,6 +34,7 @@ DEPENDENCIES
   bluecloth
   git
   rubypants
+  sass
   shotgun
   sinatra
   sinatra-contrib

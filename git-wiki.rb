@@ -160,6 +160,9 @@ get '/a/search' do
   show :search, 'Search Results'
 end
 
+get '/a/git-wiki.css' do
+  sass :git_wiki
+end
 # file upload attachments
 
 get '/a/file/upload/:page' do

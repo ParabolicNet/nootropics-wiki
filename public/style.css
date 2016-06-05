@@ -8,7 +8,8 @@ img { max-width: 100%; }
 
 body {
   margin: 0;
-  font-family: "Cantarell", "Droid Sans", Arial, "Deja Vu Sans", "Bitstream Vera Sans", sans-serif;
+  font: ;
+  font-family: -apple-system, "Cantarell", "Droid Sans", Arial, "Deja Vu Sans", "Bitstream Vera Sans", sans-serif; /* the default fonts on OS X, Gnome, Android, and then the rest */
   font-size: 15px; line-height: 25px;
 }
 
@@ -21,8 +22,9 @@ code, pre { font-family: "Deja Vu Sans Mono", "Bitstream Vera Sans Mono", "Incon
 
 h1 { color: #333; /* margin: 24px 0 8px 0; */
   font-weight: normal;
-  font-size: 2.6em;
-  margin-top: 1.5em;
+  font-size: 2em;
+  line-height: 2em;
+  margin-top: 1em;
   margin-bottom: 1em;
 }
 
@@ -63,15 +65,17 @@ li ul, li ol { padding: 0 0 0 1.4em; } /* no vertical padding for nested lists *
 article > h1 { font-size: 160%; margin: 1.5em 0 1em; }
 article > h2 { font-size: 110%; color: #333; margin: 1.5em 0 1em; }
 
-/* style external links
-article a[href^="http://"]:after,
-article a[href^="https://"]:after {
+ /*style external links*/
+article a[href^="http://"]:before,
+article a[href^="https://"]:before {
   background-image: url(/external-link.png);
   width: 12px;
   height: 12px;
   display: inline-block;
-  content: '';
-}*/
+  content: '⦿';
+  margin-right: 3px;
+  color: green;
+}
 
 .delta {
   font-size: 1.1em;
@@ -141,9 +145,6 @@ header nav ul li:hover ul li { display: block; min-width: 5em }
   font-weight: bold;
 }
 
-article {
-  max-width: 600px; margin: 0em auto; padding: 2em;
-}
 
 article aside {
   float: right;
@@ -175,17 +176,18 @@ textarea.body { height: 35em; margin-top: 1.5em; }
 textarea.message { height: 4em; }
 
 body > header {
-  clear: both;
-  background: #464141; color: white;
-  text-align: right; padding: 4px;
-  /*border-radius: 3px;*/
-  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding: 5px 10px;
+  background: #464141; color: white;
+  text-align: right;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  padding: 0 16px 0 72px;
+  height: 56px;
 }
+
+main { max-width: 600px; margin: 0em auto; padding: 2em; }
 
 footer {
   clear: both;
