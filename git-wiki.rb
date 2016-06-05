@@ -15,7 +15,7 @@ end
 get '/:page' do
   @menu = Page.new("menu")
   @page = Page.new(params[:page])
-  @page.tracked? ? show(:show, @page.name) : redirect('/e/' + @page.name)
+  @page.tracked? ? show(:show, @page.nice_name) : redirect('/e/' + @page.name)
 end
 
 get '/:page/raw' do
@@ -32,7 +32,7 @@ end
 get '/e/:page' do
   @menu = Page.new("menu")
   @page = Page.new(params[:page])
-  show :edit, "Editing #{@page.name}"
+  show :edit, "Editing #{@page.nice_name}"
 end
 
 post '/e/:page' do
@@ -71,7 +71,7 @@ get '/a/list' do
   pages = $repo.log.first.gtree.children
   @menu = Page.new("menu")
   @pages = pages.select { |f,bl| f[0,1] != '_'}.sort.map { |name, blob| Page.new(name) } rescue []
-  show(:list, 'Listing pages')
+  show(:list, 'All pages')
 end
 
 get '/a/patch/:page/:rev' do

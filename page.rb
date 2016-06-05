@@ -7,6 +7,10 @@ class Page
     @rev = rev
   end
 
+  def nice_name
+    name.gsub('_', ' ')
+  end
+
   def filename
     @filename ||= File.join(GIT_REPO, @name)
   end

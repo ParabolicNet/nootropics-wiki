@@ -17,7 +17,7 @@
     </aside>
 
     <header>
-      <h1>Editing <a href="/<%= @page.name %>"><%= @page.name %></a></h1>
+      <h1>Editing <a href="/<%= @page.name %>"><%= @page.nice_name %></a></h1>
       <% if @page.name =~ /\d\d\d\d-\d\d-\d\d/ %>
         <% require 'date'; date = Date.parse(@page.name) %>
         <p><time datetime="<%= date %>"><%= date.strftime("%A %e %B %Y") %></time></p>
