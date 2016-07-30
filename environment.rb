@@ -36,5 +36,5 @@ HOMEPAGE = 'home'
 
 $repo = Git.open(GIT_REPO)
 
-MARKDOWN_EXTENSIONS = { tables: true, fenced_code_blocks: true, strikethrough: true }
+MARKDOWN_EXTENSIONS = { tables: true, fenced_code_blocks: true, strikethrough: true, autolink: true }
 $markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, MARKDOWN_EXTENSIONS)

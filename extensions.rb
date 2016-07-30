@@ -36,7 +36,7 @@ class String
           link, text = $1, $2
           '[%s](/%s)' % [text, link.as_wiki_link]
         end
-        line.gsub!(GIT_WIKI_OBVIOUS_URI) { '<%s>' % $& }
+        # line.gsub!(GIT_WIKI_OBVIOUS_URI) { '<%s>' % $& }
       end
       with_links << line
     end
