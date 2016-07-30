@@ -1,3 +1,6 @@
+*
+  box-sizing: border-box
+
 // html5 goodness
 header, nav, article, section, footer, figure, aside
   display: block
@@ -17,8 +20,10 @@ body
   font-size: 15px
   line-height: 25px
   padding-top: 56px
+  background-color: #fafafa
 
 main
+
   a
     color: #1a82bf
     text-decoration: none
@@ -96,6 +101,25 @@ article a[href^="https://"]:before
   content: '⦿'
   margin-right: 3px
   color: green
+
+article
+  font-family: Georgia
+  font-size: 16px
+  line-height: 1.7
+
+  h2
+    font-family: sans-serif
+
+  li
+    margin-bottom: 6px
+
+  pre
+    background: #fff
+    padding: 8px
+    border-radius: 3px
+    font-size: 14px
+    overflow-x: auto
+
 
 .delta
   font-size: 1.1em
@@ -225,7 +249,7 @@ body > header
     float: right
 
 main
-  max-width: 600px
+  max-width: 700px
   margin: 0em auto
   padding: 2em
 
