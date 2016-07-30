@@ -20,7 +20,13 @@ class Page
   end
 
   def body
-    @body ||= RubyPants.new(BlueCloth.new(raw_body.wiki_linked, :tables => true).to_html).to_html
+    @body ||= render_markdown(raw_body)
+  end
+
+
+  def render_markdown(md_string)
+    html = $markdown.render(md_string.wiki_linked)
+    RubyPants.new(html).to_html
   end
 
   def branch_name
@@ -90,7 +96,8 @@ class Page
 
   def version(rev)
     data = blob.contents
-    RubyPants.new(BlueCloth.new(data.wiki_linked).to_html).to_html
+    render_markdown(data)
+    # RubyPants.new(Redcarpet::Markdown.new(data.wiki_linked).to_html).to_html
   end
 
   def blob
