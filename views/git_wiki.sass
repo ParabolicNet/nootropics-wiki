@@ -21,18 +21,22 @@ body
   font-size: 15px
   line-height: 25px
   padding-top: 56px
-  background-color: #fafafa
+  background-color: #fff
   -webkit-font-smoothing: antialiased
 
 main
 
   a
-    color: #1a82bf
+    color: #404038
     text-decoration: none
+    border-bottom: 2px solid #ddd
+    transition: border-color 150ms, color 150ms
     &:visited
-      color: #0e4061
+      color: #404038
     &:hover
-      text-decoration: underline
+      color: #222
+      text-decoration: none
+      border-bottom: 2px solid #555
 
   code, pre
     font-family: "Deja Vu Sans Mono", "Bitstream Vera Sans Mono", "Inconsolata", "Consolas", monospace
@@ -101,19 +105,22 @@ article > h3
 
 
 // style external links
-article a[href^="http://"]:before,
-article a[href^="https://"]:before
-  width: 12px
+article a[href^="http://"]:after,
+article a[href^="https://"]:after
+  // width: 12px
   height: 12px
   display: inline-block
-  content: '⦿'
-  margin-right: 3px
-  color: green
+  content: '⬈'
+  margin-left: 3px
+  // color: green
+  font-size: 10px
+  vertical-align: super
 
 article
   font-family: Georgia
   font-size: 16px
   line-height: 1.7
+
 
   h2, h3
     font-family: sans-serif
@@ -122,7 +129,7 @@ article
     margin-bottom: 6px
 
   pre
-    background: #fff
+    background: #f0f0f0
     padding: 8px
     border-radius: 3px
     font-size: 14px
@@ -258,6 +265,11 @@ body > header
     font-size: 24px
     font-weight: normal
     line-height: normal
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+
 
   nav
     float: right
