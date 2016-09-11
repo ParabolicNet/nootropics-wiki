@@ -21,26 +21,35 @@ class String
   # It is far from perfect; it is good enough for now.
   GIT_WIKI_OBVIOUS_URI = /(https?|ftps?|file)\:[\/\\\w\d\/\-\+\?\!\&\=\.\_\@\%\&\*\~\#]+/
 
+  TAG = /(\#[\w\+\-]+)/
+
   def wiki_linked
     lines.map { |line| line.gsub_links }.join
   end
 
   def gsub_links
     return self if self =~ MARKDOWN_CODEBLOCK # ignore links in code blocks
-    gsub_simple_links_with_markdown.gsub_complex_links_with_markdown
+    gsub_simple_links_to_markdown.gsub_complex_links_to_markdown.gsub_tags_to_markdown
   end
 
-  def gsub_simple_links_with_markdown
+  def gsub_simple_links_to_markdown
     gsub(GIT_WIKI_SIMPLE_LINK) do
       text = $1
       '[%s](/%s)' % [text, text.as_wiki_link]
     end
   end
 
-  def gsub_complex_links_with_markdown
+  def gsub_complex_links_to_markdown
     gsub(GIT_WIKI_COMPLEX_LINK) do
       text, link = $1, $2
       '[%s](/%s)' % [text, link.as_wiki_link]
+    end
+  end
+
+  def gsub_tags_to_markdown
+    gsub(TAG) do
+      text = $1
+      '[%s](/a/search?q=%s)' % [text, URI.escape(text)]
     end
   end
 
