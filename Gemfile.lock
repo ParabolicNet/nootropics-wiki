@@ -10,6 +10,7 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     redcarpet (3.2.3)
+    rouge (2.0.6)
     rubypants (0.2.0)
     sass (3.4.22)
     shotgun (0.9)
@@ -33,6 +34,7 @@ PLATFORMS
 DEPENDENCIES
   git
   redcarpet
+  rouge
   rubypants
   sass
   shotgun
@@ -40,4 +42,4 @@ DEPENDENCIES
   sinatra-contrib
 
 BUNDLED WITH
-   1.12.5
+   1.13.0

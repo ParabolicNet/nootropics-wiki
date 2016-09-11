@@ -3,6 +3,8 @@ require 'bundler/setup'
 
 require 'git'
 require 'redcarpet'
+require 'rouge'
+require 'rouge/plugins/redcarpet'
 require 'rubypants'
 
 require './extensions'
@@ -36,5 +38,17 @@ HOMEPAGE = 'home'
 
 $repo = Git.open(GIT_REPO)
 
-MARKDOWN_EXTENSIONS = { tables: true, fenced_code_blocks: true, strikethrough: true, autolink: true }
-$markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, MARKDOWN_EXTENSIONS)
+
+
+MARKDOWN_EXTENSIONS = {
+  tables: true,
+  fenced_code_blocks: true,
+  space_after_headers: true,
+  strikethrough: true,
+  autolink: true }
+
+class HTML < Redcarpet::Render::HTML
+  include Rouge::Plugins::Redcarpet # hightlight code blocks with Rouge
+end
+
+$markdown = Redcarpet::Markdown.new(HTML, MARKDOWN_EXTENSIONS)

@@ -23,7 +23,6 @@ class Page
     @body ||= render_markdown(raw_body)
   end
 
-
   def render_markdown(md_string)
     html = $markdown.render(md_string.wiki_linked)
     RubyPants.new(html).to_html

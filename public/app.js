@@ -1,4 +1,5 @@
 "use strict";
+
 /* cribbed from http://nullstyle.com/2007/06/02/caching-time_ago_in_words */
 function seconds_ago(to, from) {
     return ((to  - from) / 1000);
