@@ -39,7 +39,13 @@ post '/e/:page' do
   @menu = Page.new("menu")
   @page = Page.new(params[:page])
   @page.update(params[:body], params[:message])
-  redirect '/' + @page.name
+  if params[:page] == params[:name]
+    redirect '/' + @page.name
+  else
+    $repo.lib.mv(params[:page], params[:name])
+    $repo.commit("Renamed #{params[:page]} to #{params[:name]}")
+    redirect '/' + params[:name]
+  end
 end
 
 post '/eip/:page' do

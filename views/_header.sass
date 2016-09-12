@@ -1,0 +1,70 @@
+body > header
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  background: #464141
+  color: white
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26)
+  padding: 0 16px 0 72px
+  height: 56px
+  font-size: 15px
+
+
+  #search-form
+    display: inline-block
+
+  #search-field
+    border: 1px solid white
+    color: #999
+    max-width: 100%
+    font-size: 15px
+
+  h1
+    color: white
+    font-size: 24px
+    font-weight: normal
+    line-height: normal
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+  nav
+    float: right
+    padding: 15px 0
+    margin: 0 auto
+
+    a
+      display: inline
+      padding: 1px 6px
+      border-radius: 2px
+      color: white
+      text-decoration: none
+      font-weight: bold
+      &:visited
+        color: white
+      &:hover
+        background-color: #696969
+        color: #feb800
+        text-decoration: none
+
+    ul, li
+      display: inline-block
+      margin: 0
+      padding: 0
+
+    ul li
+      position: relative
+
+    ul li ul
+      position: absolute
+      background: #696969
+      border-radius: 3px
+      text-align: center
+      display: none // submenus are hidden
+
+    ul li:hover ul
+      display: block // display submenu on hover
+      li
+        display: block
+        min-width: 5em

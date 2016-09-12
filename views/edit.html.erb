@@ -1,5 +1,5 @@
 <article>
-  <form method="post" action="/e/<%= @page.name %>">
+  <form method="post" action="/e/<%= @page.name %>" id='edit-article'>
     <aside>
       <a href="/<%= @page.name %>" class="nav_link">back</a>
       &bull; <a href="/a/file/upload/<%= @page.name %>" class="nav_link">attach</a>
@@ -43,7 +43,7 @@
         <% end %>
       </section>
     <% end %>
-
+    <input name="name" value="<%= @page.name %>" placeholder='the_filename' type='text'/>
     <textarea name="body" class="body"><%= @page.raw_body %></textarea>
     <label for="message">Message:</label>
     <textarea name="message" rows="4" class="message"></textarea>
