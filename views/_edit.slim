@@ -1,0 +1,57 @@
+form#edit-page method="post" action=page_path(@page)
+  / == slim :_edit_attachments
+  input name="name" value=@page.name placeholder='the_filename' type='text'
+  textarea.body name="body" = @page.raw_body
+  label for="message" Message:
+  textarea.message name="message" rows="4"
+  p.right: input.submit type="submit" value="Save"
+
+javascript:
+  /**
+   * Insert `what` to string at position `index`.
+   */
+  String.prototype.insert = function(what, index) {
+      return index > 0
+          ? this.replace(new RegExp('.{' + index + '}'), '$&' + what)
+          : what + this;
+  };
+
+  function beginningOfLine(string, pos) {
+    if (pos < 1) { return 0; }
+    var index = string.lastIndexOf("\n", pos - 1);
+    return index + 1;
+  }
+
+  function indent() {
+    var textarea = document.activeElement;
+    console.log(textarea.value);
+    var string = textarea.value
+    // loop van start naar end
+    // op ieder karakter, zoek naar begin van regel
+    // onthoud positie
+    // als onthouden positie anders is
+    // - zet daar twee spaties neer
+    // - tel 2 op bij selectionEnd
+    var lastPos = -1
+    var pos = textarea.selectionStart;
+    var stop = textarea.selectionEnd;
+    console.log(pos, stop)
+    do {
+      console.log("pos = " + pos + " stop = " + stop)
+      var begin = beginningOfLine(string, pos)
+      console.log('begin = ' + begin)
+      if (lastPos < begin) {
+        lastPos = begin;
+        string = string.insert('  ', begin);
+        stop = stop + 2;
+      }
+      pos = pos + 1;
+    } while (pos <= stop);
+    console.log(string);
+    textarea.value = string;
+  }
+
+  var textarea = document.querySelector('textarea')
+  var mousetrap = new Mousetrap(textarea);
+  mousetrap.bind(['ctrl+]', 'command+]'], indent);
+  // mousetrap.bind(['ctrl+[', 'command+['], dedent);

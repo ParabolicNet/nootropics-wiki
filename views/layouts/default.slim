@@ -1,0 +1,31 @@
+doctype 5
+html
+  head
+    meta http-equiv="Content-Type" content="text/html; charset=utf-8"
+    title = [@title, 'wiki'].compact.join(' - ')
+    link rel="stylesheet" href="/a/git-wiki.css" type="text/css" media="screen"
+    link rel="stylesheet" href="/print.css" type="text/css" media="print"
+    script src="/zepto.min.js"
+    script src="/app.js"
+    script src="/mousetrap.min.js"
+    script src="/mousetrap-global-bind.min.js"
+    link rel="icon" type="image/png" href="/icon.png"
+    meta name="viewport" content="width=device-width"
+    == yield_content :head
+  body
+    header
+      nav
+        a href="/" home
+        a href="/a/branches" branches
+        a href="/a/history" changes
+        a href="/a/list" pages
+        - unless @no_search_in_header
+          form#search-form method="get" action="/a/search"
+            input#search_field type="search" name="q" size="30" placeholder="search... [alt+s]" accesskey="S" autofocus=true value=@query
+        == yield_content :nav
+      h1 = @title
+    main role="main" == yield
+    footer
+      ' powered by a
+      a href="http://github.com/sr/git-wiki/network" git-wiki
+      |< fork

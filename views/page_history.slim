@@ -1,0 +1,20 @@
+article
+  aside
+    a.nav_link href=page_path(@page) current
+    | •
+    a.nav_link href=edit_page_path(@page) edit
+  header
+    h1
+      ' Edit History of
+      br
+      q: a href=page_path(@page) = @page.nice_name
+  ul
+    - @page.history.each do |c|
+      li
+        img src=gravatar_url(c.author.email, size: 16)
+        time.relative datetime=c.committer_date = c.committer_date.strftime("%A %e %B %Y")
+        br
+        a href=page_history_path(@page, c.sha) = c.message
+        - unless @page.history.first == c
+          | •
+            a href="/d/#{@page.name}/#{c.sha}"  diff

@@ -1,0 +1,25 @@
+article
+  header
+    h1 Changes
+    section.details
+      a.nav_link href="/a/branches"
+        = "#{$repo.current_branch} branch"
+      == '&ensp;'
+      span.sub_nav.details
+        = [@history.size, 'commits'].join(' ')
+  .content
+    ul
+      - @history.each do |commit|
+        li
+          img src=gravatar_url(commit.author.email, size: 16)
+          time.relative datetime=commit.committer_date = commit.committer_date.strftime("%A %e %B %Y")
+
+          / - if commit != @history.first
+          /   a href="/a/revert_branch/#{commit.sha}" onclick=("return confirm('Are you sure you want to revert to this revision?');") title=("Click to revert to this revision.")
+          /     javascript:
+          /       | document.write(time_ago_in_words(#{commit.date.to_json}) + ' ago');
+          / - else
+          /   javascript:
+          /     | document.write(time_ago_in_words(#{commit.date.to_json}) + ' ago');
+          br
+          = commit.message

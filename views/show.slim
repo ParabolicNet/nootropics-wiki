@@ -1,0 +1,50 @@
+- content_for :nav
+  == '&emsp;'
+  span page:
+  a href=page_history_path(@page) older versions
+  - unless params[:rev]
+    a href=edit_page_path(@page) edit
+
+article.document
+  aside
+    - if params[:rev]
+      a href=page_path(@page) current version
+      br
+      - if @page.next_commit
+       a href=page_history_path(@page, @page.next_commit) rel='next' newer version
+      - else
+        span newer version
+      br
+      - if @page.previous_commit
+        a href=page_history_path(@page, @page.previous_commit) rel='prev' previous version
+      - else
+        span previous version
+
+  header.document__header
+    - if @page.name =~ /\d\d\d\d-\d\d-\d\d/
+      - require 'date'
+      - date = Date.parse(@page.name)
+      h1
+        time datetime="#{date}" = date.strftime("%A %e %B %Y")
+      a href="/#{date.prev_day}" previous day
+      == '&bull;'
+      a href="/#{date.next_day}" next day
+    - else
+      h1 = @title
+
+    section.document__details
+      ' edited
+      time.relative datetime=@page.updated_at = @page.updated_at.strftime("%A %e %B %Y")
+      = " - "
+      = $repo.current_branch + " branch"
+
+  .document__body
+    .editable
+      .editable__toggle e
+      .editable__left == @page.to_html
+      .editable__right
+        textarea.body name="body" = @page.source
+
+    - @page.parts.each do |part|
+
+== slim :_help, layout: false

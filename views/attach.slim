@@ -1,0 +1,12 @@
+h1 Attach File
+section
+  h2 New File Upload
+  form.niceform action="/a/file/upload/#{@page.name}" enctype="multipart/form-data" method="post"
+    label for="name"  name
+    input name="name" type="text" /
+    br/
+    label for="name"  file
+    input name="file" type="file" /
+    br/
+    label for="submit"
+    input.submit type="submit" value="upload" /

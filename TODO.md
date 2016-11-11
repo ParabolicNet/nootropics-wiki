@@ -1,20 +1,13 @@
-sass
-http://stackoverflow.com/questions/4029916/generating-css-file-from-new-sass-format-scss-with-sinatra-and-haml
-
-for the top-level menu?
-
-http://www.red-team-design.com/css3-accordion
-http://www.red-team-design.com/css3-dropdown-menu
+- previews for local links
+- font-family: "Aleo Regular" ??
 
 
-
-
-= SOON
+# SOON
   * repo stats/info/maintenance page
   * deleting pages
   * pushing repo from web interface
 
-= CHACON IDEAS
+# CHACON IDEAS
   * tagging
   * file attachments
   * inter-branch links
@@ -25,13 +18,13 @@ http://www.red-team-design.com/css3-dropdown-menu
   * cherry-picked branches (read-tree/write-tree)
   * users (email/name/ip - use for commits)
 
-= LATER/MAYBE
+# LATER/MAYBE
   * backlinks (trivial syntax, ideally)
   * outliner functionality
   * menubar item launcher (like Instiki back in the day)
   * RubyCocoa GUI
 
-= DONE
+# DONE
   * working launchd plist
   * in-place editing
   * fix duplication of routes/methods to accommodate file extensions
@@ -42,6 +35,6 @@ http://www.red-team-design.com/css3-dropdown-menu
   * next/previous commit links on pages
   * pretty stylesheet
 
-= PROBABLY NOT
+# PROBABLY NOT
   * Shoes GUI: Shoes is still pretty immature, ex: all paths are relative
     to the `shoes` binary making requires a pain, etc.

@@ -1,0 +1,17 @@
+- if files = @page.attachments
+    section.attachments
+      h3 Attachments
+      - files.each do |file|
+        li
+          a href=file.link_path = file.name
+          span.detail ="(#{file.size})"
+          .attach-options
+            a href=file.delete_path delete
+            == '&bull;'
+            a href=file.link_path download
+            - if file.image?
+              == '&bull;'
+              a href="#" onClick="$(edit_textarea).html($(edit_textarea).html() + '!<%= file.link_path %>!');" insert &#187;
+            - else
+              == '&bull;'
+              a href="#" onClick="$(edit_textarea).html($(edit_textarea).html() + '[<%= file.name %>](<%= file.link_path %>)');" insert &#187;

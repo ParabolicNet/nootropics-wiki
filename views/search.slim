@@ -1,0 +1,39 @@
+.container
+  / p: code = @q.inspect
+  / p: code = @q.to_regexp
+
+  - if @perfect_match
+    - page = @perfect_match.to_page
+    h1 Perfect match
+
+    .perfect-match
+      h2: a href="/#{@perfect_match.filename}" = page.nice_name
+      == page.first_paragraph
+  - else
+    p
+      ' Create a page called
+      a href="/#{@q.to_s.as_wiki_link}" = @q
+      | .
+
+  section
+    section.detail
+      h1
+        => @results.size
+        ' results for
+        q = @q
+
+    - @results.each do |result|
+      article.search-result
+        h2: a href="/#{result.filename}" = result.to_s + " (score #{result.score})"
+        table.search-results__matching-lines
+          - result.matches.first(2).each do |match|
+            tr
+              th = match.first
+              td.highlight
+                code class='markdown'
+                  == escape_html(match.last).gsub(@q.to_regexp) { "<mark>#{$&}</mark>" }
+          - if result.matches.size > 2
+            tr
+              th
+              td = "#{result.matches.size - 2} more"
+

@@ -1,0 +1,26 @@
+.help
+  table.keys
+    tr
+      th: kbd ?
+      td Show Help
+    tr
+      th: kbd s
+      td Focus search bar
+    tr
+      th: kbd e
+      td Edit
+    tr
+      th
+        kbd> alt
+        ' +
+        kbd p
+      td Fuzzy completion
+
+javascript:
+  Mousetrap.bind(['escape'], function(e) {
+    $('.help.help--show').removeClass('help--show')
+  });
+
+  Mousetrap.bind(['?'], function(e) {
+    $('.help').addClass('help--show')
+  });

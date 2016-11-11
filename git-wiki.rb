@@ -5,17 +5,39 @@ require './environment'
 require 'sinatra'
 require 'sinatra/content_for'
 
+configure do
+  set :erb, layout: :'layouts/defaults.slim'
+  set :slim, layout: :'layouts/default'
+end
+
+helpers do
+  def gravatar_url(email, size: 80)
+    hash = Digest::MD5.hexdigest(email.to_s.strip.downcase)
+    'http://www.gravatar.com/avatar/' + hash + "?s=#{size}&d=identicon"
+  end
+end
+Dir["./app/helpers/*.rb"].each { |file| require file }
+helpers PathHelpers
+
 get('/') do
   @no_search_in_header = true
-  show :root, 'Git Wiki'
+  @title = 'Git Wiki'
+  slim :root
+end
+
+get '/a/history' do
+  @history = $repo.log
+  @title = "Branch History"
+  slim :branch_history
 end
 
 # page paths
 
 get '/:page' do
-  @menu = Page.new("menu")
   @page = Page.new(params[:page])
-  @page.tracked? ? show(:show, @page.nice_name) : redirect('/e/' + @page.name)
+  return redirect(edit_page_path(@page)) unless @page.tracked?
+  @title = @page.nice_name
+  slim :show
 end
 
 get '/:page/raw' do
@@ -23,28 +45,28 @@ get '/:page/raw' do
   send_data @page.raw_body, :type => 'text/plain', :disposition => 'inline'
 end
 
-get '/:page/append' do
+get '/:page/edit' do
   @page = Page.new(params[:page])
-  @page.update(@page.raw_body + "\n\n" + params[:text], params[:message])
-  redirect '/' + @page.name
+  @title = "Editing #{@page.nice_name}"
+  slim :edit
 end
 
-get '/e/:page' do
-  @menu = Page.new("menu")
-  @page = Page.new(params[:page])
-  show :edit, "Editing #{@page.nice_name}"
-end
+# post '/:page/append' do
+#   @page = Page.new(params[:page])
+#   @page.update(@page.raw_body + "\n\n" + params[:text], params[:message])
+#   redirect '/' + @page.name
+# end
 
-post '/e/:page' do
-  @menu = Page.new("menu")
+post '/:page' do
   @page = Page.new(params[:page])
   @page.update(params[:body], params[:message])
-  if params[:page] == params[:name]
+  new_name = params[:name].gsub(/\s/, '_')
+  if params[:page] == new_name
     redirect '/' + @page.name
   else
-    $repo.lib.mv(params[:page], params[:name])
-    $repo.commit("Renamed #{params[:page]} to #{params[:name]}")
-    redirect '/' + params[:name]
+    $repo.lib.mv(params[:page], new_name)
+    $repo.commit("Renamed #{params[:page]} to #{new_name}")
+    redirect '/' + new_name
   end
 end
 
@@ -54,30 +76,31 @@ post '/eip/:page' do
   @page.body
 end
 
-get '/h/:page' do
-  @menu = Page.new("menu")
+get '/:page/history' do
   @page = Page.new(params[:page])
-  show :history, "History of #{@page.name}"
+  @title = "History of #{@page.nice_name}"
+  slim :page_history
 end
 
-get '/h/:page/:rev' do
-  @menu = Page.new("menu")
+get '/:page/history/:rev' do
   @page = Page.new(params[:page], params[:rev])
-  show :show, "#{@page.name} (version #{params[:rev]})"
+  @title = "#{@page.nice_name} (version #{params[:rev]})"
+  slim :show
 end
 
 get '/d/:page/:rev' do
   @page = Page.new(params[:page])
-  show :delta, "Diff of #{@page.name}"
+  @title = "Diff of #{@page.name}"
+  slim :delta
 end
 
 # application paths (/a/ namespace)
 
 get '/a/list' do
   pages = $repo.log.first.gtree.children
-  @menu = Page.new("menu")
   @pages = pages.select { |f,bl| f[0,1] != '_'}.sort.map { |name, blob| Page.new(name) } rescue []
-  show(:list, 'All pages')
+  @title = 'All pages'
+  slim :list
 end
 
 get '/a/patch/:page/:rev' do
@@ -95,9 +118,9 @@ get '/a/tarball' do
 end
 
 get '/a/branches' do
-  @menu = Page.new("menu")
   @branches = $repo.branches
-  show :branches, "Branches List"
+  @title = "Branches"
+  slim :branches
 end
 
 get '/a/branch/:branch' do
@@ -105,11 +128,6 @@ get '/a/branch/:branch' do
   redirect '/' + HOMEPAGE
 end
 
-get '/a/history' do
-  @menu = Page.new("menu")
-  @history = $repo.log
-  show :branch_history, "Branch History"
-end
 
 get '/a/revert_branch/:sha' do
   $repo.with_temp_index do
@@ -154,63 +172,41 @@ post '/a/new_remote' do
 end
 
 get '/a/search' do
-  @menu = Page.new("menu")
-  @query = params[:q].to_s
-  @titles = search_on_filename(@query)
-  @grep = $repo.grep(@query, nil, :ignore_case => true)
-  [@titles, @grep].each do |x|
-    x.values.each do |v|
-      v.each { |w| w.last.gsub!(@query, "<mark>#{escape_html @query}</mark>") }
-    end
+  @q = Query.new($repo, params[:q])
+  @perfect_match = @q.perfect_match
+  @results = @q.results
+  if @perfect_match
+    @results.reject! { |result| result.filename == @perfect_match.filename }
   end
-  show :search, 'Search Results'
+  slim :search
 end
 
 get '/a/git-wiki.css' do
-  sass :git_wiki
+  sass :'sass/git_wiki'
 end
+
 # file upload attachments
+# get '/a/file/upload/:page' do
+#   @page = Page.new(params[:page])
+#   show :attach, 'Attach File for ' + @page.name
+# end
 
-get '/a/file/upload/:page' do
-  @page = Page.new(params[:page])
-  show :attach, 'Attach File for ' + @page.name
-end
+# post '/a/file/upload/:page' do
+#   @page = Page.new(params[:page])
+#   @page.save_file(params[:file], params[:name])
+#   redirect '/e/' + @page.name
+# end
 
-post '/a/file/upload/:page' do
-  @page = Page.new(params[:page])
-  @page.save_file(params[:file], params[:name])
-  redirect '/e/' + @page.name
-end
+# get '/a/file/delete/:page/:file.:ext' do
+#   @page = Page.new(params[:page])
+#   @page.delete_file(params[:file] + '.' + params[:ext])
+#   redirect '/e/' + @page.name
+# end
 
-get '/a/file/delete/:page/:file.:ext' do
-  @page = Page.new(params[:page])
-  @page.delete_file(params[:file] + '.' + params[:ext])
-  redirect '/e/' + @page.name
-end
-
-get '/_attachment/:page/:file.:ext' do
-  @page = Page.new(params[:page])
-  send_file(File.join(@page.attach_dir, params[:file] + '.' + params[:ext]))
-end
-
-# support methods
-def search_on_filename(search)
-  needle = search.as_wiki_link
-  pagenames = $repo.log.first.gtree.children.keys # our haystack
-  titles = {}
-  pagenames.each do |page|
-    next unless page.include? needle
-    current_branch_sha1 = $repo.log.first
-    # unfreeze the String page by creating a "new" one
-    titles["#{current_branch_sha1}:#{page}"] = [[0, "#{page}"]]
-  end
-  titles
-end
-
-# returns an absolute url
-def page_url(page)
-  "#{request.env["rack.url_scheme"]}://#{request.env["HTTP_HOST"]}/#{page}"
-end
+# get '/_attachment/:page/:file.:ext' do
+#   @page = Page.new(params[:page])
+#   send_file(File.join(@page.attach_dir, params[:file] + '.' + params[:ext]))
+# end
 
 private
 

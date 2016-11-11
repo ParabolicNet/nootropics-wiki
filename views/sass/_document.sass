@@ -1,0 +1,46 @@
+.document
+  .document__header
+    text-align: center
+    margin: 0 auto 3em
+    width: 30em
+    border-bottom-style: double
+    border-bottom-color: #ddd
+    h1
+      margin-bottom: 0
+    &:after
+      display: inline-block
+      content: '❧'
+      font-size: 24px
+      color: #aaa
+      // width: 60%
+      margin: 0 auto
+      background-color: white
+      padding: 0 10px
+      position: relative
+      top: 20px
+
+  .document__details
+    color: #999
+
+  input[type=text]
+    border: 1px solid #ccc
+    font-size: 0.875em
+
+  label
+    font-size: .9em
+
+  textarea
+    border: 1px solid #ccc
+    // font-family: "Deja Vu Sans Mono", "Bitstream Vera Sans Mono", "Inconsolata", "Consolas", monospace
+    font-family: "Inconsolata", "Consolas", monospace
+    font-size: .9em
+    padding: 5px
+
+  .edit textarea
+    display: block
+    margin-bottom: 5px
+    max-height: 300px
+    min-width: 100%
+
+  .document__body
+    @import "tables"

@@ -1,0 +1,31 @@
+table
+  // font-size: 0.9em
+  border-top: 2px solid #ccc
+  border-bottom: 2px solid #ccc
+  border-collapse: collapse
+  margin: 2em 0
+
+  caption
+    font-weight: bold
+    font-variant: italic
+
+  td, th
+    padding-left: 4px
+    padding-right: 4px
+
+  td:not(:last-child), th:not(:last-child)
+    padding-right: 15px
+
+  thead
+    td, th
+      border-bottom: 1px solid #ddd
+
+  tbody
+    tr:nth-child(5n+0)
+      td, th
+        border-bottom: 1px solid #ddd
+
+    tr:hover
+      background-color: rgba(255,196,0, 0.08)
+    td:hover
+      background-color: rgba(255,196,0, 0.09)

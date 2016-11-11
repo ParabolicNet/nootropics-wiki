@@ -1,0 +1,34 @@
+article
+  h1 Branches
+  ol
+    - @branches.each do |b|
+      - next if b.full == 'origin/master'
+      li
+        - if b.current
+          strong = b.full
+        - else
+          = b.full
+          / TODO, these should be POSTs instead of GETs
+          a href="/a/branch/#{b.name}" switch
+          a href="/a/merge_branch/#{b.name}" merge
+article
+  h1 New Branch
+  form.niceform method="post" action="/a/new_branch"
+    label for="name"  name
+    input type="text" name="branch"
+    br
+    input type="hidden" name="type" value="derive"
+    label for="submit"
+    input.submit type="submit" value="create"
+
+article
+  h1 New Remote Branch
+  form.niceform method="post" action="/a/new_remote"
+    label for="branch_name" name
+    input type="text" name="branch_name"
+    br
+    label for="branch_url" url
+    input type="text" name="branch_url"
+    br
+    label for="submit"
+    input.submit type="submit" value="create"

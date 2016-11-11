@@ -1,8 +1,8 @@
-h1. git-wiki
+# git-wiki
 
 A wiki engine that uses a Git repository as its data store.
 
-h2. Requirements
+# Requirements
 
 * rubygems
 * sinatra
@@ -10,7 +10,7 @@ h2. Requirements
 * bluecloth
 * rubypants
 
-h2. What is different in this fork?
+# What is different in this fork?
 
 * more likely to be a bit minimalistic or 'pure' than chock-full of features (no bloat)
 * html5, no time spent on supporting old browsers
@@ -23,3 +23,7 @@ h2. What is different in this fork?
 * usable on mobile browsers (iphone/android)
 * use updated or different gems for more extensive markdown-support. (a.o. tables)
 * no javascript used at this time. (might change in the future)
+
+# TODO
+
+- Open Iconic

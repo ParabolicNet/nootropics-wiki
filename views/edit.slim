@@ -1,0 +1,32 @@
+article
+  / aside
+  /   a.nav_link href="/#{@page.name}" back
+  /   == "&bull;"
+  /   a.nav_link href="/a/file/upload/#{@page.name}" attach
+  /   - if @page.tracked?
+  /     == "&bull;"
+  /     a.nav_link href="/h/#{@page.name}" history
+  /   == "&bull;"
+  /   input type="submit" value="Save" class="submit"
+  /   section class="context"
+  /     - if @page.name =~ /\d\d\d\d-\d\d-\d\d/
+  /       - require 'date'
+  /       - date = Date.parse(@page.name)
+  /       a.nav_link href="/#{date.prev_day}" previous day
+  /       == '&bull;'
+  /       a.nav_link href="/#{date.next_day}" next day
+
+  header
+    h1
+      ' Editing
+      a href="/#{@page.name}" = @page.nice_name
+    - if @page.name =~ /\d\d\d\d-\d\d-\d\d/
+      - require 'date'
+      - date = Date.parse(@page.name)
+      p: time datetime=date = date.strftime("%A %e %B %Y")
+
+    a href='#x' [M|] Markdown cheatsheet
+
+    #x boo
+
+  == slim :_edit, layout: false

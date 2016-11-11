@@ -1,0 +1,16 @@
+article
+  header
+    h1
+      ' Diff of
+      a href=page_path(@page) = @page.nice_name
+    section.details
+      nav.sub_nav
+        a.nav_link href="/a/patch/#{@page.name}/#{params[:rev]}"  patch file
+        | •
+        a.nav_link href="/h/#{@page.name}"  history
+        | •
+        a.nav_link href=edit_page_path(@page)"  edit
+  section.content
+    - formatter = Rouge::Formatters::HTML.new
+    - lexer = Rouge::Lexers::Diff.new
+    pre.highlight.diff == formatter.format(lexer.lex(@page.delta(params[:rev])))

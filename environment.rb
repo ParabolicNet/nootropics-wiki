@@ -8,7 +8,8 @@ require 'rouge/plugins/redcarpet'
 require 'rubypants'
 
 require './extensions'
-require './page'
+require_relative 'app/models/page'
+require_relative 'app/models/query'
 
 
 REPO_LOCATIONS = ["#{ENV['HOME']}/wiki", "#{ENV['HOME']}/.wiki"]
@@ -41,14 +42,17 @@ $repo = Git.open(GIT_REPO)
 
 
 MARKDOWN_EXTENSIONS = {
-  tables: true,
+  autolink: true,
   fenced_code_blocks: true,
+  no_intra_emphasis: true,
   space_after_headers: true,
   strikethrough: true,
-  autolink: true }
+  tables: true,
+  with_toc_data: true }
 
 class HTML < Redcarpet::Render::HTML
   include Rouge::Plugins::Redcarpet # hightlight code blocks with Rouge
 end
 
 $markdown = Redcarpet::Markdown.new(HTML, MARKDOWN_EXTENSIONS)
+

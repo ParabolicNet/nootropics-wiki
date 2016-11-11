@@ -1,0 +1,128 @@
+// .editable
+//   display: flex
+//   justify-content: center
+//   // align-items: flex-start
+//   align-items: stretch
+//   justify-content: space-between
+
+//   position: relative
+//   transition: max-width ease-out 200ms, width ease-out 200ms
+//   max-width: 40em + 8em
+//   padding: 0 4em
+//   margin: 0 auto
+//   // width: 100%
+
+//   .editable__left, .editable__right
+//     transition: flex-basis ease-out 200ms, opacity ease-out 500ms
+//     max-width: 40em
+
+//   .editable__left
+//     flex-basis: 100%
+//     background-color: white
+
+//   .editable__right
+//     flex-basis: 0%
+//     opacity: 0
+//     // overflow-y: auto
+//     // height: 100%
+//     display: flex
+//     flex-direction: column
+
+//     textarea
+//       display: none
+//       border: none
+
+  // .editable__toggle
+  //   display: none
+  //   position: absolute
+  //   right: 5px
+  //   top: 0
+  //   background-color: #ccc
+  //   border-radius: 4px
+  //   width: 2em
+  //   height: 2em
+  //   text-align: center
+
+// .editable.editable--edit
+//   width: 100%
+//   max-width: 80em
+
+//   .editable__left, .editable__right
+//     flex: 0 0 50%
+
+//   .editable__left
+//     background-color: #fed
+//     flex-basis: 50%
+
+//   .editable__right
+//     background-color: #def
+//     flex-basis: 50%
+//     opacity: 1
+//     textarea
+//       flex: 1
+//       display: block
+
+.editable:hover
+  .editable__toggle
+    display: block
+
+.editable
+  position: relative
+  max-width: 40em + 8em
+  padding: 0 4em
+  margin: 0 auto
+  transition: max-width ease-out 200ms, width ease-out 200ms
+
+  .editable__left,
+  .editable__right
+    transition: max-width ease-out 200ms, width ease-out 200ms, opacity ease-out 1s
+    width: 100%
+
+  .editable__left
+    position: relative
+    z-index: 2
+    background-color: white
+    // background-color: #fed
+    // opacity: 0.5
+    top: -2px
+
+  .editable__right
+    position: absolute
+    z-index: 1
+    top: 0
+    bottom: 0
+    max-width: 40em
+    right: 4em // the 43em I added as padding to .editable
+    background-color: #def
+    opacity: 0
+
+    textarea
+      height: 100%
+      width: 100%
+      border: none
+      resize: none
+      outline: none
+
+  .editable__toggle
+    display: none
+    position: absolute
+    z-index: 3
+    right: 5px
+    top: 0
+    background-color: #ccc
+    border-radius: 50%
+    width: 2em
+    height: 2em
+    text-align: center
+    line-height: 2em
+    &:hover
+      background-color: #feb800
+
+.editable.editable--edit
+  width: 100%
+  max-width: 80em + 8em
+
+  .editable__left, .editable__right
+    width: 50%
+    min-height: 4em
+    opacity: 1

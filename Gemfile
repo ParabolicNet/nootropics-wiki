@@ -8,4 +8,4 @@ gem 'rubypants'
 gem 'redcarpet'
 gem 'sass'
 gem 'shotgun'
-
+gem 'slim'

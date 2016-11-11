@@ -7,7 +7,8 @@ header, nav, article, section, footer, figure, aside
 
 html,
 body
-  color: #404038
+  // color: #404038
+  color: #242424
   // background-color: #fbf9f7
 
 // a responsive design trick:
@@ -110,16 +111,6 @@ article
 .right
   text-align: right
 
-.search_result
-  margin-bottom: 15px
-
-  .match
-    line-height: 1em
-    margin-bottom: 15px
-
-.search_term
-  color: #999
-
 .submit
   font-size: 1.2em
   font-weight: bold
@@ -147,17 +138,26 @@ div.attach-options
   font-size: .85em
   color: #888
 
-form#edit-article
-  input[type=text]
-    width: 100%
-  textarea
-    width: 100%
-  textarea.body
-    height: 35em
-    margin-top: 1.5em
-  textarea.message
-    height: 4em
 
 @import "header"
-@import "main"
 @import "footer"
+
+main
+  font-family: "Roboto Slab"
+  @import "main"
+
+@import "source"
+@import "search"
+
+
+@import "document"
+@import "edit-page"
+@import "help"
+@import "kbd"
+@import 'search_widget'
+
+@import "editable"
+
+.container
+  max-width: 48em
+  margin: 0 auto
