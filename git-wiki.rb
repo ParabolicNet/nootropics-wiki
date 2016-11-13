@@ -82,19 +82,29 @@ get '/:page/history' do
   slim :page_history
 end
 
+get '/:page/history/:rev.diff' do
+  @page = Page.new(params[:page])
+  @diff = @page.delta(params[:rev])
+  send_data @diff, :type => 'text/plain', :disposition => 'inline'
+end
+
 get '/:page/history/:rev' do
   @page = Page.new(params[:page], params[:rev])
-  @title = "#{@page.nice_name} (version #{params[:rev]})"
+  @revision = params[:rev]
+  @title = "#{@page.nice_name} (version #{@revision})"
   slim :show
 end
 
-get '/d/:page/:rev' do
+get '/:page/history/:rev/diff' do
   @page = Page.new(params[:page])
-  @title = "Diff of #{@page.name}"
+  @revision = params[:rev]
+  @title = "Diff of #{@page.nice_name}"
+  @diff = @page.delta(@revision)
   slim :delta
 end
 
 # application paths (/a/ namespace)
+# maybe I should use an underscore as the app-path _
 
 get '/a/list' do
   pages = $repo.log.first.gtree.children

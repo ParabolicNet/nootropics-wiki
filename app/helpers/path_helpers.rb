@@ -15,4 +15,12 @@ module PathHelpers
     revision = "/#{revision}" if revision
     "/#{page.name}/history" + revision.to_s
   end
+
+  def page_history_diff_path(page, revision)
+    "/#{page.name}/history/#{revision}/diff"
+  end
+
+  def page_history_patchfile_path(page, revision)
+    "/#{page.name}/history/#{revision}.diff"
+  end
 end

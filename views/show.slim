@@ -33,8 +33,9 @@ article.document
       h1 = @title
 
     section.document__details
-      ' edited
-      time.relative datetime=@page.updated_at = @page.updated_at.strftime("%A %e %B %Y")
+      a href='/#{@page}/history' title='show changes'
+        ' edited
+        time.relative datetime=@page.updated_at = @page.updated_at.strftime("%A %e %B %Y")
       = " - "
       = $repo.current_branch + " branch"
 
