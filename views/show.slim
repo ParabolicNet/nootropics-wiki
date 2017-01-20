@@ -2,6 +2,7 @@
   == '&emsp;'
   span page:
   a href=page_history_path(@page) older versions
+  a#copy href='#copy' title='copy whole text to clipboard' copy
   - unless params[:rev]
     a href=edit_page_path(@page) edit
 
@@ -44,8 +45,15 @@ article.document
       .editable__toggle e
       .editable__left == @page.to_html
       .editable__right
-        textarea.body name="body" = @page.source
+        textarea.body#source name="body" = @page.source
 
     - @page.parts.each do |part|
 
 == slim :_help, layout: false
+
+javascript:
+  $(document).on('click', 'a#copy', function() {
+    console.log('x');
+    document.querySelector("textarea.body#source").select();
+    document.execCommand('copy');
+  });

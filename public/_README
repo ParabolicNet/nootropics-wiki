@@ -1,0 +1,1 @@
+Store no files directly in this directory. Put them in subdirectories. They will take precedence over wiki articles with the same name; and this is not something that we want. We want to be able to have an article called jquery.js or require.js.
