@@ -1,4 +1,4 @@
-form#edit-page method="post" action=page_path(@page)
+form#edit-page method="post" action=page_path(@page) autocomplete="off" role="presentation"
   / == slim :_edit_attachments
   input name="name" value=@page.name placeholder='the_filename' type='text'
   textarea.body#textarea name="body" = @page.raw_body
