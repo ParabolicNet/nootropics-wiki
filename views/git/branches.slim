@@ -1,5 +1,9 @@
-article
+article.container
   h1 Branches
+  form action='/a/pull' method="POST"
+    button pull
+  form action='/a/push' method="POST"
+    button push
   ol
     - @branches.each do |b|
       - next if b.full == 'origin/master'
@@ -9,9 +13,12 @@ article
         - else
           = b.full
           / TODO, these should be POSTs instead of GETs
+          == em_space
           a href="/a/branch/#{b.name}" switch
+          == em_space
           a href="/a/merge_branch/#{b.name}" merge
-article
+
+article.container
   h1 New Branch
   form.niceform method="post" action="/a/new_branch"
     label for="name"  name
@@ -21,7 +28,7 @@ article
     label for="submit"
     input.submit type="submit" value="create"
 
-article
+article.container
   h1 New Remote Branch
   form.niceform method="post" action="/a/new_remote"
     label for="branch_name" name

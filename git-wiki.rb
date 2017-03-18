@@ -16,8 +16,10 @@ helpers do
     'http://www.gravatar.com/avatar/' + hash + "?s=#{size}&d=identicon"
   end
 end
+
 Dir["./app/helpers/*.rb"].each { |file| require file }
 helpers PathHelpers
+helpers HTMLHelpers
 
 get('/') do
   @no_search_in_header = true
@@ -28,7 +30,7 @@ end
 get '/a/history' do
   @history = $repo.log
   @title = "Branch History"
-  slim :branch_history
+  slim :"git/history"
 end
 
 # page paths
@@ -130,14 +132,13 @@ end
 get '/a/branches' do
   @branches = $repo.branches
   @title = "Branches"
-  slim :branches
+  slim :"/git/branches"
 end
 
 get '/a/branch/:branch' do
   $repo.checkout(params[:branch])
   redirect '/' + HOMEPAGE
 end
-
 
 get '/a/revert_branch/:sha' do
   $repo.with_temp_index do
@@ -189,6 +190,22 @@ get '/a/search' do
     @results.reject! { |result| result.filename == @perfect_match.filename }
   end
   slim :search
+end
+
+post '/a/pull' do
+  Dir.chdir(GIT_REPO) do
+    `git fetch`
+    @output = `git merge || git merge --abort`
+  end
+  slim :"git/pull"
+end
+
+post '/a/push' do
+  Dir.chdir(GIT_REPO) do
+    @output = `git push`
+  end
+  @succesful = $?.success?
+  slim :"git/push"
 end
 
 get '/a/git-wiki.css' do
