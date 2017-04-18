@@ -47,12 +47,15 @@ MARKDOWN_EXTENSIONS = {
   no_intra_emphasis: true,
   space_after_headers: true,
   strikethrough: true,
-  tables: true,
-  with_toc_data: true }
+  tables: true }
+REDERER_OPTIONS = {
+  with_toc_data: true
+}
 
-class HTML < Redcarpet::Render::HTML
+class MyHTML < Redcarpet::Render::HTML
   include Rouge::Plugins::Redcarpet # hightlight code blocks with Rouge
 end
 
-$markdown = Redcarpet::Markdown.new(HTML, MARKDOWN_EXTENSIONS)
-
+renderer = MyHTML.new(REDERER_OPTIONS)
+$markdown = Redcarpet::Markdown.new(renderer, MARKDOWN_EXTENSIONS)
+$markdown_toc = Redcarpet::Markdown.new(Redcarpet::Render::HTML_TOC, MARKDOWN_EXTENSIONS)

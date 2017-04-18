@@ -30,9 +30,14 @@ class Page
     @body ||= render_body(raw_body)
   end
 
-  def to_html
-    body
+  def toc
+    @toc ||=  render_toc(raw_body)
   end
+
+  def to_html
+    toc + body
+  end
+
 
   def source
     raw_body
@@ -51,6 +56,13 @@ class Page
     markdown = source.wiki_linked
     html = $markdown.render(markdown)
     RubyPants.new(html).to_html
+  end
+
+  def render_toc(source)
+    markdown = source.wiki_linked
+    toc = $markdown_toc.render(markdown)
+    return '' if toc.lines.count { |line| line.include? '<li>' } < 2
+    "<div class='toc'><h1 class='toc__title'>Contents</h1>#{toc}</div>"
   end
 
   def branch_name
