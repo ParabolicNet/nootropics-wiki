@@ -50,14 +50,11 @@ article > h3
 // style external links
 article a[href^="http://"]:after,
 article a[href^="https://"]:after
-  // width: 12px
-  height: 12px
   display: inline-block
-  content: '⬈'
+  content: url('/external-link.svg')
   margin-left: 3px
-  // color: green
-  font-size: 10px
-  vertical-align: super
+  // width: 12px
+  width: 1em
 
 article a[href^="/a/search?"]
   background-color: #fff9ea
@@ -158,6 +155,7 @@ main
 
 @import "editable"
 @import "codemirror"
+@import "toc"
 
 .container
   max-width: 48em

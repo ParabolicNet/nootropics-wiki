@@ -1,0 +1,32 @@
+
+.toc
+  border: 1px solid rgba(70, 65, 65, 0.1)
+  border-radius: 1px
+  padding: 0 1.6rem
+  background-color: #f8f8f8
+
+.toc__title
+  font-size: 16px
+  font-weight: bold
+  text-align: center
+
+.toc ul
+  list-style-type: none
+  padding: 0
+
+  ul
+    padding-left: 1.6rem
+
+@media (min-width: 1250px)
+  .toc
+    position: fixed
+    width: 250px
+    // left: -300px
+    left: 25px
+    top: 112px
+    overflow-y: auto
+    max-height: calc(100vh - 112px - 12px)
+
+@media (print)
+  .toc
+    display: none !important
