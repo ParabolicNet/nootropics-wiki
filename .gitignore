@@ -10,3 +10,4 @@
 tmp/*
 .sass-cache/
 .ruby-version
+.cordboard.ini
