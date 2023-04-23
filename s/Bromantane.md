@@ -55,7 +55,7 @@ IntraNasal: 4-8h
 - [Source](https://sci-hub.se/https://pubmed.ncbi.nlm.nih.gov/22235395/)
 
 #### Neurotrophin-mediated sensitizing properties
-- [Source](https://sci-hub.se/https://link.springer.com/article/10.1007%2Fs10517-012-1516-z
+- [Source](https://sci-hub.se/https://link.springer.com/article/10.1007%2Fs10517-012-1516-z)
 
 #### Anti-fibrotic
 - [Source](https://www.globenewswire.com/news-release/2019/07/31/1894580/0/en/Algernon-Pharmaceuticals-Announces-Russian-Athletic-Performance-Enhancing-Drugs-Bemethyl-NP-135-and-Bromantane-NP-160-Exhibited-Potent-Anti-Fibrotic-Activity-in-NASH-and-CKD-Studie.html)
