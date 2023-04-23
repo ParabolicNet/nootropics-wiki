@@ -17,56 +17,56 @@ A crude first version of the NootropicsWiki to get all relevant information into
 
 ## Dopamine Upregulators
 
-[Bromantane](/Bromantane)
-[Acetyl L-Carnitine/ALCAR](/ALCAR)
+[Bromantane](/s/Bromantane)
+[Acetyl L-Carnitine/ALCAR](/s/ALCAR)
 
 ## Neurogenics/Neurorestoratives
 
-[SEMAX](/SEMAX)
-[SELANK](/SELANK)
-[Pinealon](/Pinealon)
-[Cortexin](/Cortexin)
-[Cerebrolysin](/Cerebrolysin)
-[NSI-189](/NSI-189)
+[SEMAX](/s/SEMAX)
+[SELANK](/s/SELANK)
+[Pinealon](/s/Pinealon)
+[Cortexin](/s/Cortexin)
+[Cerebrolysin](/s/Cerebrolysin)
+[NSI-189](/s/NSI-189)
 
 ## Racetams & AMPA Modulators
 
-[Piracetam](/Piracetam)
-[Pramiracetam](/Pramiracetam)
-[TAK-653](/TAK-653)
+[Piracetam](/s/Piracetam)
+[Pramiracetam](/s/Pramiracetam)
+[TAK-653](/s/TAK-653)
 
 ## NMDA Modulators
 
-[Neboglamine](/Neboglamine)
+[Neboglamine](/s/Neboglamine)
 
 ## Eugeroics & Histamine Modulators
 
-[Modafinil](/Modafinil)
-[Pitolisant](/Pitolisant)
+[Modafinil](/s/Modafinil)
+[Pitolisant](/s/Pitolisant)
 
 ## Adenosine Modulators
 
-[Caffeine](/Caffeine)
-[Istradefylline](/Istradefylline)
+[Caffeine](/s/Caffeine)
+[Istradefylline](/s/Istradefylline)
 
 ## Nicotinic Acetylcholine Modulators
 
-[Tropisetron](/Tropisetron)
-[CDP-Choline](/CDP-Choline)
-[Nicotine](/Nicotine)
+[Tropisetron](/s/Tropisetron)
+[CDP-Choline](/s/CDP-Choline)
+[Nicotine](/s/Nicotine)
 
 ## Memory Enhancers
 
-[PRL-8-53](/PRL-8-53)
-[Bacopa](/Bacopa)
+[PRL-8-53](/s/PRL-8-53)
+[Bacopa](/s/Bacopa)
 
 ## Vasodilators
 
-[Ginkgo](/Ginkgo)
+[Ginkgo](/s/Ginkgo)
 
 ## [Male Hormone Enhancers](/Male-Hormones)
 
-[Zinc](/Zinc)
+[Zinc](/s/Zinc)
 
 ---
 
