@@ -8,18 +8,20 @@ I have yet to devise a good system to allow contributions for pages that do not 
 
 # CommonName
 
-&lt;!-- IUPAC Name --&gt;
+<code>
+<!-- IUPAC Name -->
 
-&lt;!-- Analogues & Prodrugs --&gt;
+<!-- Analogues & Prodrugs -->
 
-&lt;!-- Mechanism of Action --&gt;
+<!-- Mechanism of Action -->
 
-&lt;!-- Psychoactive class --&gt;
+<!-- Psychoactive class -->
 
-&lt;!-- Dosage ranges & typical Route of Administration --&gt;
+<!-- Dosage ranges & typical Route of Administration -->
 
-&lt;!-- Half-life & duration of effect --&gt;
+<!-- Half-life & duration of effect -->
 
-&lt;!-- Relevant studies and study findings --&gt;
+<!-- Relevant studies and study findings -->
 
-&lt;!-- Possible interactions --&gt;
+<!-- Possible interactions -->
+</code>
