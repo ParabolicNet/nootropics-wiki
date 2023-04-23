@@ -1,5 +1,3 @@
-# Nootropics Wiki V1
-
 A crude first version of the NootropicsWiki to get all relevant information into one place.
 
 ## What nootropic data is collected?
