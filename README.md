@@ -70,8 +70,7 @@ A crude first version of the NootropicsWiki to get all relevant information into
 
 ---
 
-Would you like to contribute to this site?
-[Contribute](/nootropics-wiki/Contribute)
+### Would you like to contribute to this site? [Contribute](/nootropics-wiki/Contribute)
 
 ---
 
