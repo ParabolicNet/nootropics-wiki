@@ -6,9 +6,9 @@ I have yet to devise a good system to allow contributions for pages that do not 
 
 ### The guide/template:
 
+```
 # CommonName
 
-<code>
 <!-- IUPAC Name -->
 
 <!-- Analogues & Prodrugs -->
@@ -24,4 +24,4 @@ I have yet to devise a good system to allow contributions for pages that do not 
 <!-- Relevant studies and study findings -->
 
 <!-- Possible interactions -->
-</code>
+```
