@@ -2,4 +2,4 @@
 
 # This page is hungry for data
 
-See how you can help [contribute](/nootropics-wiki/contribute).
+See how you can help [contribute](/nootropics-wiki/Contribute).
