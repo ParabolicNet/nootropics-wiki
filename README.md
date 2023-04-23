@@ -4,13 +4,13 @@ A crude first version of the NootropicsWiki to get all relevant information into
 
 - Common Name
 - IUPAC Name (Standard chemical name)
+- Psychoactive class (Nootropic, Stimulant, Anxiolytic, Eugeroic, etc)
 - Analogues & Prodrugs
 - Mechanism of Action
-- Psychoactive class (Nootropic, Stimulant, Anxiolytic, Eugeroic, etc)
 - Dosage ranges & typical Route of Administration
+- Estimated duration of effect
 - Relevant studies and study findings
 - Possible interactions
-- Half life
 - Anything else that is useful (suggestions welcome)
 
 ---

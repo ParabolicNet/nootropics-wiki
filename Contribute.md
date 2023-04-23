@@ -4,8 +4,59 @@ To contribute, click "Improve this page" in the bottom right of the page you wou
 
 I have yet to devise a good system to allow contributions for pages that do not currently exist. Let me know via discord (MattNZ) if you have any suggestions.
 
-### The guide/template:
+Remember, stick to the facts. 
+If there is an unknown anywhere, just remove it.
 
+### The guide/template:
+```
+# CommonName
+
+---
+
+### IUPAC
+IUPACName
+
+### Class
+Nootropic / Stimulant / Anxiolytic / Eugeroic / Etc
+
+<!--Analogues: -->
+<!--Prodrugs: -->
+
+### Mechanism of Action
+
+Insert a concise and informative description about the Mechanism of Action here.
+
+### ROA & Dosages (Low-High)
+<!-- Only insert common routes of administration and known, safe dosage ranges -->
+Oral: 00-000mg
+Sublingual: 00-000mg
+IntraNasal: 0-00mg
+Topical: 0-00mg
+
+### Estimated Effect Duration
+<!-- Only insert common RoAs and known effect durations -->
+Oral: 6-10h
+IntraNasal: 4-8h
+
+## Studies
+
+#### Has X effect
+- [Source](InsertLinkToStudy)
+- [Source](InsertLinkToStudy)
+
+#### Reduces Y
+- [Source](InsertLinkToStudy)
+
+#### Improves Z
+- [Source](InsertLinkToStudy)
+
+#### Anti-X
+- [Source](InsertLinkToStudy)
+
+<!--### Interactions-->
+```
+
+### Example:
 ```
 # Bromantane
 
