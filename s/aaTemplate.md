@@ -1,20 +1,17 @@
 # CommonName
 
-[]: Test
+<!-- IUPAC Name -->
 
-<!--Analogues & Prodrugs-->
+<!-- Analogues & Prodrugs -->
 
-[a]:: Mechanism of Action
+<!-- Mechanism of Action -->
 
+<!-- Psychoactive class -->
 
+<!-- Dosage ranges & typical Route of Administration -->
 
+<!-- Half-life & duration of effect -->
 
-IUPAC Name (Standard chemical name)
-- Analogues & Prodrugs
-- Mechanism of Action
-- Psychoactive class (Nootropic, Stimulant, Anxiolytic, Eugeroic, etc)
-- Dosage ranges & typical Route of Administration
-- Relevant studies and study findings
-- Possible interactions
-- Half life
-- Anything else that is useful (suggestions welcome)
+<!-- Relevant studies and study findings -->
+
+<!-- Possible interactions -->
