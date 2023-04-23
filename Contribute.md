@@ -7,11 +7,15 @@ I have yet to devise a good system to allow contributions for pages that do not 
 ### The guide/template:
 
 ```
-# CommonName
+<!-- Common Name -->
+# Bromantane
 
 <!-- IUPAC Name -->
+N-(4-bromophenyl)adamantan-2-amine
 
-<!-- Analogues & Prodrugs -->
+<!-- Analogues & Prodrugs (Delete if none) -->
+Analogues:
+Prodrugs:
 
 <!-- Mechanism of Action -->
 
