@@ -1,29 +1,17 @@
-# git-wiki
+# Nootropics Wiki V1
 
-A wiki engine that uses a Git repository as its data store.
+A crude first version of the NootropicsWiki to get all relevant information into one place.
 
-# Requirements
+## What nootropic data is collected?
 
-* rubygems
-* sinatra
-* grit
-* bluecloth
-* rubypants
+- IUPAC Name (Standard chemical name)
+- Mechanism of Action
+- Relevant studies and study findings
+- Dosage ranges & typical Route of Administration
+- Possible interactions
+- Anything else that is useful (suggestions welcome)
 
-# What is different in this fork?
+# Test
 
-* more likely to be a bit minimalistic or 'pure' than chock-full of features (no bloat)
-* html5, no time spent on supporting old browsers
-* case-insensitive searching. This makes a lot of sense for a wiki, doesn't it?
-* minimal design
-* gravatars in page history
-* the top bar is partly a self-hosted wiki page
-* attachments might not work :-/
-* improved recognition for urls
-* usable on mobile browsers (iphone/android)
-* use updated or different gems for more extensive markdown-support. (a.o. tables)
-* no javascript used at this time. (might change in the future)
-
-# TODO
-
-- Open Iconic
+* Hello
+* Welcome
