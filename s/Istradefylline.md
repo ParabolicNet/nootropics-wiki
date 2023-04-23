@@ -1,17 +1,5 @@
-# CommonName
+<!-- To contribute, follow the guide here: https://parabolicnet.github.io/nootropics-wiki/Contribute -->
 
-<!-- IUPAC Name -->
+# This page is hungry for data
 
-<!-- Analogues & Prodrugs -->
-
-<!-- Mechanism of Action -->
-
-<!-- Psychoactive class -->
-
-<!-- Dosage ranges & typical Route of Administration -->
-
-<!-- Half-life & duration of effect -->
-
-<!-- Relevant studies and study findings -->
-
-<!-- Possible interactions -->
+See how you can help [contribute](/nootropics-wiki/Contribute).
