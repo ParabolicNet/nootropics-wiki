@@ -17,60 +17,60 @@ A crude first version of the NootropicsWiki to get all relevant information into
 
 ## Dopamine Upregulators
 
-[Bromantane](/nootropics-wiki/s/Bromantane)
-[Acetyl L-Carnitine/ALCAR](/nootropics-wiki/s/ALCAR)
+[Bromantane](/s/Bromantane)
+[Acetyl L-Carnitine/ALCAR](/s/ALCAR)
 
 ## Neurogenics/Neurorestoratives
 
-[SEMAX](/nootropics-wiki/s/SEMAX)
-[SELANK](/nootropics-wiki/s/SELANK)
-[Pinealon](/nootropics-wiki/s/Pinealon)
-[Cortexin](/nootropics-wiki/s/Cortexin)
-[Cerebrolysin](/nootropics-wiki/s/Cerebrolysin)
-[NSI-189](/nootropics-wiki/s/NSI-189)
+[SEMAX](/s/SEMAX)
+[SELANK](/s/SELANK)
+[Pinealon](/s/Pinealon)
+[Cortexin](/s/Cortexin)
+[Cerebrolysin](/s/Cerebrolysin)
+[NSI-189](/s/NSI-189)
 
 ## Racetams & AMPA Modulators
 
-[Piracetam](/nootropics-wiki/s/Piracetam)
-[Pramiracetam](/nootropics-wiki/s/Pramiracetam)
-[TAK-653](/nootropics-wiki/s/TAK-653)
+[Piracetam](/s/Piracetam)
+[Pramiracetam](/s/Pramiracetam)
+[TAK-653](/s/TAK-653)
 
 ## NMDA Modulators
 
-[Neboglamine](/nootropics-wiki/s/Neboglamine)
+[Neboglamine](/s/Neboglamine)
 
 ## Eugeroics & Histamine Modulators
 
-[Modafinil](/nootropics-wiki/s/Modafinil)
-[Pitolisant](/nootropics-wiki/s/Pitolisant)
+[Modafinil](/s/Modafinil)
+[Pitolisant](/s/Pitolisant)
 
 ## Adenosine Modulators
 
-[Caffeine](/nootropics-wiki/s/Caffeine)
-[Istradefylline](/nootropics-wiki/s/Istradefylline)
+[Caffeine](/s/Caffeine)
+[Istradefylline](/s/Istradefylline)
 
 ## Nicotinic Acetylcholine Modulators
 
-[Tropisetron](/nootropics-wiki/s/Tropisetron)
-[CDP-Choline](/nootropics-wiki/s/CDP-Choline)
-[Nicotine](/nootropics-wiki/s/Nicotine)
+[Tropisetron](/s/Tropisetron)
+[CDP-Choline](/s/CDP-Choline)
+[Nicotine](/s/Nicotine)
 
 ## Memory Enhancers
 
-[PRL-8-53](/nootropics-wiki/s/PRL-8-53)
-[Bacopa](/nootropics-wiki/s/Bacopa)
+[PRL-8-53](/s/PRL-8-53)
+[Bacopa](/s/Bacopa)
 
 ## Vasodilators
 
-[Ginkgo](/nootropics-wiki/s/Ginkgo)
+[Ginkgo](/s/Ginkgo)
 
-## [Male Hormone Enhancers](/nootropics-wiki/Male-Hormones)
+## [Male Hormone Enhancers](/Male-Hormones)
 
-[Zinc](/nootropics-wiki/s/Zinc)
+[Zinc](/s/Zinc)
 
 ---
 
-### Would you like to contribute to this site? [Contribute](/nootropics-wiki/Contribute)
+### Would you like to contribute to this site? [Contribute](/Contribute)
 
 ---
 
