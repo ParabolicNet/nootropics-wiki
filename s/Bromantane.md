@@ -3,7 +3,7 @@
 ---
 
 ### IUPAC
-N-(4-bromophenyl)adamantan-2-amine
+N-(4-bromophenyl)adamantan-2-amine tiddies
 
 ### Class
 Nootropic / Stimulant / Anxiolytic
